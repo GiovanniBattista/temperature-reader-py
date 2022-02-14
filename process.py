@@ -17,6 +17,7 @@ else:
   trackbar_values = [0, 0, 0, 255, 255, 255]
 
 setup_trackbars("HSV", trackbar_values)
+text = ''
 
 # keep looping
 while True:
@@ -32,7 +33,7 @@ while True:
   
   show_calibration_window(frame, "HSV")
   v1_min, v2_min, v3_min, v1_max, v2_max, v3_max = get_trackbar_values("HSV")
-  output = process_frame(frame, (v1_min, v2_min, v3_min), (v1_max, v2_max, v3_max))
+  output,text = process_frame(frame, (v1_min, v2_min, v3_min), (v1_max, v2_max, v3_max), text)
 
   # show the frame to our screen
   cv2.imshow("Frame", output)
